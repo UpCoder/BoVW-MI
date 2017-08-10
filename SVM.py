@@ -1,7 +1,7 @@
 from sklearn.svm import SVC
 from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score
-def do_svm(data, label, n_flod = 3):
+def do_svm(data, label, n_flod=3, debug=True):
     kf = KFold(n_splits=n_flod, shuffle=True)
     max_accuracy = 0.0
     record = []
@@ -23,6 +23,7 @@ def do_svm(data, label, n_flod = 3):
                 record.append(param_c)
                 record.append(param_g)
                 max_accuracy = accuracy
-            print '-c param is %g, -g params is %g, accuracy is %g' % (param_c, param_g, accuracy)
+            if debug:
+                print '-c param is %g, -g params is %g, accuracy is %g' % (param_c, param_g, accuracy)
     print 'max accuracy is %g, -c params is %g, -g params is %g' % (max_accuracy, record[0], record[1])
     return max_accuracy, record

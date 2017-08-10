@@ -1,3 +1,4 @@
+# wang jian version
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 import numpy as np
@@ -133,10 +134,8 @@ def get_small_patch(labels, patches, count):
 if __name__ == '__main__':
     labels, patches, count = load_input.load_input()
     # labels, patches, count = get_small_patch(labels, np.array(patches), count)
-    all_labels = calu_all_labels(labels, count)
     patches = do_pca(patches)
     print 'finish pca operation, the patches shape is ', np.shape(patches)
-    print 'all labels shape is ', np.shape(all_labels)
     kmeans_res = do_k_means(patches)
     images_hist = calu_hist(count, kmeans_res.labels_)
     # SVM.do_svm(np.array(images_hist), np.array(labels))
