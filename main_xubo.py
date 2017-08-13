@@ -142,7 +142,7 @@ if __name__ == '__main__':
     labels = np.reshape(labels, [132])
     print 'image_hist shape is ', np.shape(images_hist)
     print 'labels shape is ', np.shape(labels)
-    # SVM.do_svm(np.array(images_hist), np.array(labels))
+    # SVM.do_svm(np.array(54), np.array(labels))
     MI_SELECT_NUMS = [50, 100, 150, 200, 250]
     for MI_SELECT_NUM in MI_SELECT_NUMS:
         images_hist_quantize = do_quantize(images_hist)
